@@ -1,0 +1,54 @@
+[
+  {
+    "id": "pop",
+    "name": "Pop"
+  },
+  {
+    "id": "rap-hip-hop",
+    "name": "Rap / Hip-hop"
+  },
+  {
+    "id": "rock",
+    "name": "Rock"
+  },
+  {
+    "id": "electro",
+    "name": "Électro / Dance"
+  },
+  {
+    "id": "rnb",
+    "name": "R&B / Soul"
+  },
+  {
+    "id": "latino",
+    "name": "Latino"
+  },
+  {
+    "id": "francais",
+    "name": "Musique francophone"
+  },
+  {
+    "id": "films",
+    "name": "Films & Séries"
+  },
+  {
+    "id": "youtubeurs",
+    "name": "YouTubeurs"
+  },
+  {
+    "id": "viral",
+    "name": "Tubes viraux"
+  },
+  {
+    "id": "folk-acoustique",
+    "name": "Folk / Acoustique"
+  },
+  {
+    "id": "indie-alternatif",
+    "name": "Indie / Alternatif"
+  },
+  {
+    "id": "kpop",
+    "name": "Kpop"
+  }
+]

@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Tokens inspirés de songspot : noir teinté de vert, un seul accent néon, code couleur des difficultés. */
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg: #070a08;
+  --color-surface: #111612;
+  --color-surface-2: #182019;
+  --color-line: #232c26;
+  --color-ink: #eef3ef;
+  --color-muted: #8b968f;
+  --color-faint: #4a544e;
+  --color-accent: #1ed760;
+  --color-accent-ink: #03140a;
+
+  --color-easy: #1ed760;
+  --color-medium: #f6c544;
+  --color-hard: #ff8b3d;
+  --color-expert: #ff4d5e;
+  --color-impossible: #b46bff;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* La scène : rideau vertical, bords assombris et projecteur venant du haut. */
+.stage {
+  background:
+    radial-gradient(70% 60% at 50% -10%, rgb(52 92 64 / 0.4), transparent 70%),
+    linear-gradient(90deg, rgb(0 0 0 / 0.55), transparent 22%, transparent 78%, rgb(0 0 0 / 0.55)),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.014) 0 1px, transparent 1px 22px),
+    var(--color-bg);
+}
+
+.logo {
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.04em;
+  color: #2a322c;
+  text-shadow:
+    0 1px 0 rgb(255 255 255 / 0.05),
+    0 10px 30px rgb(0 0 0 / 0.6);
+}
+
+.glow-accent {
+  box-shadow:
+    0 0 0 1px rgb(30 215 96 / 0.18),
+    0 0 90px -20px rgb(30 215 96 / 0.35);
+}
+
+/* Barre de temps animée en CSS : démarre au bon endroit grâce à un animation-delay négatif. */
+.timer-fill {
+  transform-origin: left;
+  animation-name: timer-shrink;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.timer-fill.shifting {
+  animation-name: timer-shrink, timer-color;
+}
+@keyframes timer-shrink {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+@keyframes timer-color {
+  0%,
+  50% {
+    background-color: var(--color-accent);
+  }
+  75% {
+    background-color: var(--color-medium);
+  }
+  100% {
+    background-color: var(--color-expert);
+  }
+}

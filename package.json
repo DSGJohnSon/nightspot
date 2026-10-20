@@ -1,0 +1,14 @@
+{
+  "name": "nightspot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "build": "pnpm --filter @nightspot/web build",
+    "start": "pnpm --filter @nightspot/server start",
+    "typecheck": "pnpm -r typecheck",
+    "clips:enrich": "pnpm --filter @nightspot/server clips:enrich",
+    "data:push": "pnpm --filter @nightspot/server data:push",
+    "data:pull": "pnpm --filter @nightspot/server data:pull"
+  }
+}

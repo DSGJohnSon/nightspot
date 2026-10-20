@@ -1,0 +1,9 @@
+**/node_modules
+**/dist
+.git
+*.log
+
+# Secrets et données locales : en ligne, les données sont dans le volume /data (pnpm data:push).
+**/.env
+**/.env.*
+apps/server/data

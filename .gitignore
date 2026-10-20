@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.log
+.env
+.env.*
+
+# Historique des parties et brouillons de l'admin (propres à chaque machine)
+apps/server/data/history.json
+apps/server/data/drafts.json
+apps/server/data/*.tmp
+
+# Captures extraites des clips (régénérables avec `pnpm clips:enrich`)
+apps/server/data/media/*
+!apps/server/data/media/.gitkeep
