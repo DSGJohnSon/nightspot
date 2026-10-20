@@ -108,6 +108,25 @@ les filtres, donner leur difficulté, fournir l'image et la solution, évaluer u
 gère tout le reste (joueurs, timer, vitesse, difficulté, bonus année, classement). Il s'enregistre
 dans `modules/registry.ts`.
 
+## Mise en ligne (Railway)
+
+Un seul processus Node (l'état des parties est en mémoire) et un volume pour les données.
+En production : `pnpm build && pnpm start` sert le front et l'API sur le même port.
+
+1. Railway → **New Project → Deploy from GitHub repo** → ce dépôt. `railway.json` et le
+   `Dockerfile` (Node 24, ffmpeg, yt-dlp) sont pris en compte automatiquement.
+2. Service → **Settings → Volumes** → ajouter un volume monté sur **`/data`**.
+3. Service → **Variables** → `ADMIN_PASSWORD=…`.
+4. Service → **Settings → Networking → Generate Domain** (HTTPS fourni : le QR code utilise cette
+   adresse, et l'écran des téléphones ne se met plus en veille pendant la partie).
+5. Sur ton PC, dans `apps/server/.env` : `REMOTE_URL=https://….up.railway.app` et
+   `REMOTE_ADMIN_PASSWORD=…`, puis **`pnpm data:push`** pour envoyer catalogue et captures.
+
+Chaque `git push` redéploie (les parties en cours sont alors coupées ; le volume garde catalogue,
+captures et historique). Ajoute de préférence les clips en local puis `pnpm data:push` : YouTube
+bloque souvent l'extraction depuis les serveurs. `pnpm data:pull` rapatrie les modifications faites
+en ligne ; `data:push` refuse d'écraser plus récent que lui (sauf `--force`).
+
 ## Vérifier
 
 ```bash
